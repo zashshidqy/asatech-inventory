@@ -3,6 +3,18 @@
 Semua perubahan proyek dicatat dari yang terbaru.
 
 ## Unreleased
+- Phase 3 Inventory Transactions (Stock In & Stock Out) completed:
+  - StockInController with DB transaction + lockForUpdate() for atomic stock increment
+  - StockOutController with DB transaction + lockForUpdate() + consistent ordering to prevent deadlock
+  - Dynamic form rows (add/remove items) with product selection
+  - Live stock display per product in dropdown
+  - Transaction code generation: IN-YYYYMMDD-XXXX / OUT-YYYYMMDD-XXXX
+  - Server-side validation with error display for dynamic rows
+  - Duplicate product prevention in single transaction
+  - Stock validation for Stock Out (prevent negative stock)
+  - Added CategorySeeder, LocationSeeder, ProductSeeder with demo data
+  - Updated DatabaseSeeder to include master data seeders
+
 - Phase 2 Master Data CRUD completed:
   - Categories CRUD (create, read, update, delete with search, pagination, product count)
   - Locations CRUD (create, read, update, delete with search, pagination, product count)

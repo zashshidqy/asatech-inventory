@@ -23,14 +23,15 @@ Status awal seluruh item perlu diverifikasi terhadap repository aktual.
 - [x] Products CRUD (tanpa edit stok)
 - [x] Search, filter, pagination untuk master data
 
-## Inventory transactions (Phase 3) - NEXT
-- [ ] Stock in form dengan dynamic rows
-- [ ] Stock out form dengan dynamic rows
-- [ ] Pembuatan kode transaksi yang aman
-- [ ] DB transaction dan lockForUpdate
-- [ ] Validasi stok dan rollback
+## Inventory transactions (Phase 3) - IN PROGRESS
+- [x] Stock in form dengan dynamic rows
+- [x] Stock out form dengan dynamic rows
+- [x] Pembuatan kode transaksi yang aman (IN-YYYYMMDD-XXXX / OUT-YYYYMMDD-XXXX)
+- [x] DB transaction dan lockForUpdate untuk Stock In
+- [x] DB transaction dan lockForUpdate untuk Stock Out (dengan ordering untuk prevent deadlock)
+- [x] Validasi stok dan rollback
 - [ ] Transaction history
-- [ ] Activity logs
+- [ ] Activity logs viewer
 
 ## Reporting (Phase 4-5)
 - [ ] Current stock report
