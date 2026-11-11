@@ -17,13 +17,13 @@ Status awal seluruh item perlu diverifikasi terhadap repository aktual.
 - [x] Tailwind CSS 4 + Vite setup
 - [x] Development seeders (admin & staff)
 
-## Master data (Phase 2) - NEXT
-- [ ] Categories CRUD
-- [ ] Locations CRUD
-- [ ] Products CRUD (tanpa edit stok)
-- [ ] Search, filter, pagination untuk master data
+## Master data (Phase 2) - SELESAI
+- [x] Categories CRUD
+- [x] Locations CRUD
+- [x] Products CRUD (tanpa edit stok)
+- [x] Search, filter, pagination untuk master data
 
-## Inventory transactions (Phase 3)
+## Inventory transactions (Phase 3) - NEXT
 - [ ] Stock in form dengan dynamic rows
 - [ ] Stock out form dengan dynamic rows
 - [ ] Pembuatan kode transaksi yang aman

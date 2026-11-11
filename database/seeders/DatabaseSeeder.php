@@ -32,5 +32,12 @@ class DatabaseSeeder extends Seeder
             'role' => 'staff',
             'is_active' => true,
         ]);
+
+        // Seed master data
+        $this->call([
+            CategorySeeder::class,
+            LocationSeeder::class,
+            ProductSeeder::class,
+        ]);
     }
 }

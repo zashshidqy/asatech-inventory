@@ -5,6 +5,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StockInController;
+use App\Http\Controllers\StockOutController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,9 +29,15 @@ Route::middleware('auth')->group(function () {
     // Products
     Route::resource('products', ProductController::class);
 
+    // Stock In
+    Route::get('/stock-in/create', [StockInController::class, 'create'])->name('stock-in.create');
+    Route::post('/stock-in', [StockInController::class, 'store'])->name('stock-in.store');
+
+    // Stock Out
+    Route::get('/stock-out/create', [StockOutController::class, 'create'])->name('stock-out.create');
+    Route::post('/stock-out', [StockOutController::class, 'store'])->name('stock-out.store');
+
     // Placeholder routes for navigation (to be implemented)
-    Route::get('/stock-in/create', function () { return 'Stock In - Coming Soon'; })->name('stock-in.create');
-    Route::get('/stock-out/create', function () { return 'Stock Out - Coming Soon'; })->name('stock-out.create');
     Route::get('/transactions', function () { return 'Transactions - Coming Soon'; })->name('transactions.index');
     Route::get('/reports', function () { return 'Reports - Coming Soon'; })->name('reports.index');
     Route::get('/users', function () { return 'Users - Coming Soon'; })->name('users.index');
