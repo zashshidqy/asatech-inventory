@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,8 +24,10 @@ Route::middleware('auth')->group(function () {
     // Locations
     Route::resource('locations', LocationController::class);
 
+    // Products
+    Route::resource('products', ProductController::class);
+
     // Placeholder routes for navigation (to be implemented)
-    Route::get('/products', function () { return 'Products - Coming Soon'; })->name('products.index');
     Route::get('/stock-in/create', function () { return 'Stock In - Coming Soon'; })->name('stock-in.create');
     Route::get('/stock-out/create', function () { return 'Stock Out - Coming Soon'; })->name('stock-out.create');
     Route::get('/transactions', function () { return 'Transactions - Coming Soon'; })->name('transactions.index');
