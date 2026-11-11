@@ -3,6 +3,13 @@
 Semua perubahan proyek dicatat dari yang terbaru.
 
 ## Unreleased
+- Phase 4 Reports completed:
+  - ReportController with Current Stock & Stock Movement reports
+  - Current Stock Report: filters (category, location, stock status, search), summary cards, status badges (Normal/Low/Out), stock value calculation
+  - Stock Movement Report: filters (date range, category, location, product, type), summary cards, unified in/out movements table
+  - CSV Export for both reports with UTF-8 BOM for Excel compatibility
+  - whereDate queries for SQLite compatibility
+
 - Phase 3 Inventory Transactions completed:
   - StockInController with DB transaction + lockForUpdate() for atomic stock increment
   - StockOutController with DB transaction + lockForUpdate() + consistent ordering to prevent deadlock

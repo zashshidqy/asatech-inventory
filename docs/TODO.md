@@ -33,10 +33,10 @@ Status awal seluruh item perlu diverifikasi terhadap repository aktual.
 - [x] Transaction history (list, filter, detail Stock In & Stock Out)
 - [x] Activity logs viewer (filter by action, user, date, search)
 
-## Reporting (Phase 4-5)
-- [ ] Current stock report
-- [ ] Stock movement report
-- [ ] Export (optional)
+## Reporting (Phase 4-5) - SELESAI
+- [x] Current stock report (filter kategori, lokasi, status stok, search)
+- [x] Stock movement report (filter tanggal, kategori, lokasi, produk, jenis)
+- [x] Export CSV untuk kedua laporan
 
 ## Finalization (Phase 6)
 - [ ] Black Box Testing

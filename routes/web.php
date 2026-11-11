@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\StockInController;
 use App\Http\Controllers\StockOutController;
 use App\Http\Controllers\TransactionHistoryController;
@@ -47,7 +48,13 @@ Route::middleware('auth')->group(function () {
     // Activity Logs
     Route::get('/activity-logs', [ActivityLogController::class, 'index'])->name('activity-logs.index');
 
+    // Reports
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/reports/current-stock', [ReportController::class, 'currentStock'])->name('reports.current-stock');
+    Route::get('/reports/current-stock/export', [ReportController::class, 'exportCurrentStock'])->name('reports.export-current-stock');
+    Route::get('/reports/stock-movement', [ReportController::class, 'stockMovement'])->name('reports.stock-movement');
+    Route::get('/reports/stock-movement/export', [ReportController::class, 'exportStockMovement'])->name('reports.export-stock-movement');
+
     // Placeholder routes for navigation (to be implemented)
-    Route::get('/reports', function () { return 'Reports - Coming Soon'; })->name('reports.index');
     Route::get('/users', function () { return 'Users - Coming Soon'; })->name('users.index');
 });
