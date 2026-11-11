@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,10 +17,14 @@ Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Placeholder routes for navigation (to be implemented in Phase 2)
+    // Categories
+    Route::resource('categories', CategoryController::class);
+
+    // Locations
+    Route::resource('locations', LocationController::class);
+
+    // Placeholder routes for navigation (to be implemented)
     Route::get('/products', function () { return 'Products - Coming Soon'; })->name('products.index');
-    Route::get('/categories', function () { return 'Categories - Coming Soon'; })->name('categories.index');
-    Route::get('/locations', function () { return 'Locations - Coming Soon'; })->name('locations.index');
     Route::get('/stock-in/create', function () { return 'Stock In - Coming Soon'; })->name('stock-in.create');
     Route::get('/stock-out/create', function () { return 'Stock Out - Coming Soon'; })->name('stock-out.create');
     Route::get('/transactions', function () { return 'Transactions - Coming Soon'; })->name('transactions.index');
