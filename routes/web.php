@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StockInController;
 use App\Http\Controllers\StockOutController;
+use App\Http\Controllers\TransactionHistoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,9 +39,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/stock-out/create', [StockOutController::class, 'create'])->name('stock-out.create');
     Route::post('/stock-out', [StockOutController::class, 'store'])->name('stock-out.store');
 
+    // Transaction History
+    Route::get('/transactions', [TransactionHistoryController::class, 'index'])->name('transactions.index');
+    Route::get('/transactions/stock-in/{stockIn}', [TransactionHistoryController::class, 'showStockIn'])->name('transactions.show-stock-in');
+    Route::get('/transactions/stock-out/{stockOut}', [TransactionHistoryController::class, 'showStockOut'])->name('transactions.show-stock-out');
+
+    // Activity Logs
+    Route::get('/activity-logs', [ActivityLogController::class, 'index'])->name('activity-logs.index');
+
     // Placeholder routes for navigation (to be implemented)
-    Route::get('/transactions', function () { return 'Transactions - Coming Soon'; })->name('transactions.index');
     Route::get('/reports', function () { return 'Reports - Coming Soon'; })->name('reports.index');
     Route::get('/users', function () { return 'Users - Coming Soon'; })->name('users.index');
-    Route::get('/activity-logs', function () { return 'Activity Logs - Coming Soon'; })->name('activity-logs.index');
 });

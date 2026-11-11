@@ -3,7 +3,7 @@
 Semua perubahan proyek dicatat dari yang terbaru.
 
 ## Unreleased
-- Phase 3 Inventory Transactions (Stock In & Stock Out) completed:
+- Phase 3 Inventory Transactions completed:
   - StockInController with DB transaction + lockForUpdate() for atomic stock increment
   - StockOutController with DB transaction + lockForUpdate() + consistent ordering to prevent deadlock
   - Dynamic form rows (add/remove items) with product selection
@@ -12,6 +12,9 @@ Semua perubahan proyek dicatat dari yang terbaru.
   - Server-side validation with error display for dynamic rows
   - Duplicate product prevention in single transaction
   - Stock validation for Stock Out (prevent negative stock)
+  - TransactionHistoryController: unified list with filters (type, date range, search), pagination
+  - Detail views for Stock In & Stock Out with item breakdown
+  - ActivityLogController: filterable log viewer (action, user, date range, search)
   - Added CategorySeeder, LocationSeeder, ProductSeeder with demo data
   - Updated DatabaseSeeder to include master data seeders
 
