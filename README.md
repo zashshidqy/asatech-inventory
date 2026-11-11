@@ -1,58 +1,172 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# AsaTech Inventory
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web internal untuk manajemen inventaris barang pada AsaTech.
 
-## About Laravel
+## Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Laravel 13** - PHP Framework
+- **PHP 8.4** - Programming Language
+- **Tailwind CSS 4** - Styling
+- **Vite** - Asset Bundler
+- **SQLite** - Database (Development)
+- **MySQL/MariaDB** - Database (Production Ready)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Phase 1 - Foundation ✅ (Completed)
+- Authentication (Login/Logout)
+- Role-based Access Control (Admin/Staff)
+- Dashboard Layout
+- Database Schema (10 tables)
+- Eloquent Models with Relationships
 
-## Learning Laravel
+### Phase 2 - Master Data (Next)
+- CRUD Categories
+- CRUD Locations
+- CRUD Products
+- Search, Filter, Pagination
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Phase 3 - Inventory Transactions
+- Stock In (with dynamic rows)
+- Stock Out (with atomic updates)
+- Transaction History
+- Activity Logs
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Phase 4-5 - Reporting
+- Current Stock Report
+- Stock Movement Report
+- Export (optional)
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Phase 6 - Testing & Documentation
+- Black Box Testing
+- User Guide
+- Deployment Guide
 
-## Agentic Development
+## Installation
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Prerequisites
+- PHP 8.3 or higher
+- Composer
+- Node.js & npm
+- SQLite (dev) or MySQL/MariaDB (production)
+
+### Setup
 
 ```bash
-composer require laravel/boost --dev
+# Clone repository
+git clone https://github.com/zashshidqy/asatech-inventory.git
+cd asatech-inventory
 
-php artisan boost:install
+# Install PHP dependencies
+composer install
+
+# Install Node dependencies
+npm install
+
+# Copy environment file
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+
+# Run migrations and seeders
+php artisan migrate --seed
+
+# Build assets
+npm run build
+
+# Start development server
+php artisan serve
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### Development Users
 
-## Contributing
+After running seeders, you can login with:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Admin:**
+- Email: `admin@asatech.test`
+- Password: `password123`
 
-## Code of Conduct
+**Staff:**
+- Email: `staff@asatech.test`
+- Password: `password123`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Database Schema
 
-## Security Vulnerabilities
+- `users` - User accounts with roles
+- `categories` - Product categories
+- `locations` - Storage locations
+- `products` - Product master data with stock
+- `stock_ins` - Stock in transaction headers
+- `stock_in_items` - Stock in transaction details
+- `stock_outs` - Stock out transaction headers
+- `stock_out_items` - Stock out transaction details
+- `activity_logs` - System activity logs
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Documentation
+
+Complete documentation available in `/docs`:
+
+- `PRD.md` - Product Requirements Document
+- `ARCHITECTURE.md` - System Architecture
+- `DATABASE.md` - Database Specification
+- `ERD.md` - Entity Relationship Diagram
+- `IMPLEMENTATION_PLAN.md` - Development Roadmap
+- `FEATURE_SPECIFICATION.md` - Feature Details
+- `UI_UX_GUIDELINES.md` - UI/UX Guidelines
+- `SECURITY.md` - Security Guidelines
+- `TESTING.md` - Testing Strategy
+- `TODO.md` - Project Progress
+- `CHANGELOG.md` - Change History
+
+## Development Guidelines
+
+See `AGENTS.md` for development principles and coding standards.
+
+## Git Workflow
+
+```bash
+# To push updates to GitHub, you'll need to authenticate
+git push -u origin master
+
+# Or use SSH if configured
+git remote set-url origin git@github.com:zashshidqy/asatech-inventory.git
+git push -u origin master
+```
+
+## Production Deployment
+
+### Database Configuration
+
+For production, update `.env` to use MySQL/MariaDB:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=asatech_inventory
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
+
+### Security Checklist
+
+- Set `APP_ENV=production`
+- Set `APP_DEBUG=false`
+- Use strong `APP_KEY`
+- Enable HTTPS
+- Secure database credentials
+- Configure backup strategy
+- Review `docs/SECURITY.md`
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Internal use only - AsaTech.
+
+## Repository
+
+https://github.com/zashshidqy/asatech-inventory
+
+---
+
+**Status:** Phase 1 Complete | Next: Phase 2 - Master Data CRUD
